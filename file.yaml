@@ -1,6 +1,6 @@
 ---
 - name: Create file and save execution time
-  hosts: localhost
+  hosts: local
   gather_facts: no
 
   tasks:
