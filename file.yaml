@@ -16,7 +16,7 @@
       poll: 0
       ignore_errors: yes
 
-    - name: Create file in /tmp
+    - name: Create file in /home/sonu/semaphore
       become: yes
       file:
         path: "/home/sonu/semaphore/sonu.txt"
