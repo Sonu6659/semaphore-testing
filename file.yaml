@@ -1,7 +1,8 @@
 ---
-- name: Create file and save execution time
-  hosts: all
-  gather_facts: no
+- hosts: all
+  remote_user: root
+  vars:
+     ansible_become_passsword: as
 
   tasks:
     - name: Record execution time
