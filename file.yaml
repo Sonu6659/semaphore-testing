@@ -1,8 +1,8 @@
 ---
 - hosts: all
-  remote_user: root
+  remote_user: sonu
   vars:
-     ansible_become_passsword: as
+     ansible_become_passsword: s
 
   tasks:
     - name: Record execution time
