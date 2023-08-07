@@ -1,6 +1,11 @@
 ---
 - name: Print Hello, World! and Save Execution Time
   hosts: localhost
+  remote_user: sonu
+  become: yes
+  become_method: su
+  vars:
+ 	ansible_become_passsword: s
   gather_facts: false
 
   tasks:
