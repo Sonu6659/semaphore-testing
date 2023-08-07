@@ -2,9 +2,9 @@
 - hosts: localhost
   remote_user: root
   become: yes
-  become_method: as
+  become_method: su
   vars:
-     ansible_become_passsword: s
+     ansible_become_passsword: as
 
   tasks:
     - name: Record execution time
