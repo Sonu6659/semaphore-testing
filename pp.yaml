@@ -1,0 +1,28 @@
+
+
+tasks:
+    - name: Record execution time
+      become: yes
+      command: "/bin/date +%s.%N"
+      register: start_time
+
+    - name: Sleep for a few seconds (Replace with your actual tasks)
+      command: "sleep 5s"
+      async: 300
+      poll: 0
+      ignore_errors: yes
+
+    - name: Create file in /home/sonu/sema
+      become: yes
+      file:
+        path: "/home/sonu/sema/sonu.txt"
+        state: touch
+
+    - name: Record execution end time
+      become: yes
+      command: "/bin/date +%s.%N"
+      register: end_time
+
+    - name: Calculate execution time
+      become: yes
+      shell: "echo {{ (end_time.stdout | float) - (start_time.stdout | float) }} > /home/sonu/sema/execution_time.txt"
