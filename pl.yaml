@@ -1,12 +1,8 @@
 ---
 - name: Print Hello, World! and Save Execution Time
   hosts: all
-  gather_facts: No
-  remote_user: sonu
-  become_method: su
-  
-    vars:
- 	  ansible_become_passsword: as
+  gather_facts: false
+ 
   
     tasks:        
      - name: Print Hello, World!
