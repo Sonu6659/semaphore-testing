@@ -1,6 +1,7 @@
 ---
 - name: Print Hello, World! and Save Execution Time
   hosts: all
+  gather_facts: false
   remote_user: testing
   become: yes
   become_method: su
