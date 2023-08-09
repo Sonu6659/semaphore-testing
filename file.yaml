@@ -1,7 +1,7 @@
 ---
 - name: Print Hello, World! and Save Execution Time
- - hosts: localhost
-  remote_user: sonu
+ - hosts: all
+  remote_user: testing
   become: yes
   become_method: su
   vars:
