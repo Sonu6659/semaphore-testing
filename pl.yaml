@@ -9,10 +9,10 @@
         msg: "Hello, World!"
 
      - name: Create the time file
-       shell: touch /tmp/time_file.txt
+       file: touch /tmp/time_file.txt
 
      - name: Save Execution Time
-       shell: date +%Y-%m-%d_%H-%M-%S
+       file: date +%Y-%m-%d_%H-%M-%S
        register: time_output
        
      - name: Save the execution time to a file
