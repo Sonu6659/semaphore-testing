@@ -1,0 +1,29 @@
+version: v1.0
+name: Your CI/CD Pipeline
+
+agent:
+  machine:
+    type: e1-standard-2
+
+env:
+  SEMAPHORE_USERNAME: sonu
+  SEMAPHORE_PASSWORD: 12345
+  SEMAPHORE_PROJECT_ID: 1
+  SEMAPHORE_PLAYBOOK_NAME: hell.yml
+
+blocks:
+  - name: Authenticate and Fetch Tokens
+    task:
+      jobs:
+        - name: Authenticate and Fetch Tokens
+          commands:
+            - chmod +x auth_and_token.sh fetch_api_token.sh
+            - ./auth_and_token.sh $SEMAPHORE_USERNAME $SEMAPHORE_PASSWORD > bearer_token.txt
+            - ./fetch_api_token.sh $(cat bearer_token.txt) $SEMAPHORE_PROJECT_ID > api_token.txt
+
+  - name: Run Ansible Playbook
+    task:
+      jobs:
+        - name: Run Ansible Playbook
+          commands:
+            - ansible-playbook -i inventory.ini --extra-vars "api_token=$(cat api_token.txt)" $hell.yml
